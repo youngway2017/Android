@@ -16,7 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <!-- 注册服务 -->
+        <service android:name="yw.cn.service.PlayerService">
+            <intent-filter>
+                <action android:name="com.wwj.media.MUSIC_SERVICE"/>
+            </intent-filter>
+        </service>
     </application>
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />

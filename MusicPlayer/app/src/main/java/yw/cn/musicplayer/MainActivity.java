@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -16,6 +18,7 @@ import yw.cn.utils.MediaUtil;
 
 public class MainActivity extends Activity {
     ListView listView;
+    Button play_music;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +38,13 @@ public class MainActivity extends Activity {
             hashMap.put("displayName",mp3Info.getDisplayName());
             list.add(hashMap);
         }
+        play_music = (Button)this.findViewById(R.id.play_music);
+        play_music.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
         SimpleAdapter listAdapter = new SimpleAdapter(this,list,R.layout.item,new String[] {"title","displayName"},new int[]{R.id.title,R.id.displayName});
         listView.setAdapter(listAdapter);
     }
