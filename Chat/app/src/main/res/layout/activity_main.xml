@@ -1,0 +1,88 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="0dp">
+        <RadioButton
+            android:id="@+id/chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="chat"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@drawable/contacts_normal"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            />
+        <RadioButton
+            android:id="@+id/chat1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="chat"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@drawable/contacts_normal"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            />
+        <RadioButton
+            android:id="@+id/chat2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="chat"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@drawable/contacts_normal"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            />
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <RadioButton
+                android:id="@+id/chat3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="chat"
+                android:gravity="center"
+                android:button="@null"
+                android:drawableTop="@drawable/contacts_normal"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="vertical"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="-5dp"
+                android:padding="4dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/reddot"
+                    android:gravity="center"
+                    android:text="11"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+        </FrameLayout>
+
+    </RadioGroup>
+</LinearLayout>
