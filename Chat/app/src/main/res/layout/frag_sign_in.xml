@@ -1,46 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:padding="15dp" >
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:id="@+id/imageView"
-        android:src="@drawable/default_icon_user"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="1.5"/>
-    <LinearLayout
+        android:src="@drawable/default_icon_user" >
+    </ImageView>
+
+    <EditText
+        android:id="@+id/et_sign_in_account"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4"
-        android:orientation="vertical"
-        >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/login_selector_input"
+        android:drawableLeft="@drawable/user_account_icon"
+        android:drawablePadding="15dp"
+        android:drawableStart="@drawable/user_account_icon"
+        android:hint="用户名/手机号"
+        android:minHeight="40dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:singleLine="true" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:id="@+id/editText2"
-            android:layout_weight="1" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:id="@+id/editText"
-            android:layout_weight="1" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:text="New Button"
-            android:id="@+id/button"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1" />
-        
-    </LinearLayout>
-    <LinearLayout
+    <EditText
+        android:id="@+id/et_sign_in_pwd"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        android:visibility="visible"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/login_selector_input"
+        android:drawableLeft="@drawable/user_pwd_lock_icon"
+        android:drawablePadding="15dp"
+        android:drawableStart="@drawable/user_pwd_lock_icon"
+        android:hint="请输入密码"
+        android:minHeight="40dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:password="true"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/btn_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_green_selector"
+        android:text="登录"
+        android:textColor="#FFFFFFFF" />
+
 </LinearLayout>

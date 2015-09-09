@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import yw.cn.chat.ChatApplication;
 import yw.cn.chat.R;
 import yw.cn.chat.activity.LoginActivity;
 
@@ -22,14 +24,18 @@ public class LogoFra extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i(ChatApplication.TAG_LOG, "LoginFra onCreate");
+
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 //        return super.onCreateView(inflater, container, savedInstanceState);
+        Log.i(ChatApplication.TAG_LOG, "LoginFra onCreateView");
         View v = inflater.inflate(R.layout.frag_logo,container,false);
         initView(v);
+        initEvent();
         return v;
     }
 
