@@ -10,6 +10,7 @@ import java.util.List;
  * Created by Administrator on 2015-09-08.
  */
 public class ChatApplication extends Application {
+    public static final String TAG_LOG = "young";
 
     private List<Activity> activities = new LinkedList<Activity>();
 
