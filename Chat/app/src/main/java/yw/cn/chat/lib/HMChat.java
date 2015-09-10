@@ -8,7 +8,7 @@ import android.content.Context;
 public class HMChat {
     public static HMChat instance;
     public static Context context;
-    public HMChat getInstance() {
+    public static HMChat getInstance() {
         if (instance == null) {
             synchronized (HMChat.class) {
                 if (instance == null) {
@@ -26,7 +26,7 @@ public class HMChat {
     public static Context getContext() {
         if (HMChat.context == null) {
             throw new RuntimeException(
-                    "请在Application的onCreate方法中调用HMChat.getInstance().init(context)初始化聊天引擎.");
+                    "请在Application的onCreate方法中调用HMChat.getInstance().setContext(context)初始化聊天引擎.");
         }
         return HMChat.context;
     }

@@ -12,6 +12,7 @@ import yw.cn.chat.R;
 import yw.cn.chat.base.BaseActivity;
 import yw.cn.chat.fragment.LogoFra;
 import yw.cn.chat.fragment.SignInFra;
+import yw.cn.chat.fragment.SignUpFra;
 
 /**
  * Created by Administrator on 2015-09-09.
@@ -53,6 +54,16 @@ public class LoginActivity extends BaseActivity {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         currentTag = TAG_SIGN_IN;
         currentFra = new SignInFra();
+        transaction.replace(R.id.login_container,currentFra, currentTag);
+        transaction.addToBackStack(currentTag);
+        transaction.commit();
+    }
+
+    public void signUp() {
+        Log.i(ChatApplication.TAG_LOG,"LoginActivity signUp");
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        currentTag = TAG_SIGN_UP;
+        currentFra = new SignUpFra();
         transaction.replace(R.id.login_container,currentFra, currentTag);
         transaction.addToBackStack(currentTag);
         transaction.commit();

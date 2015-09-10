@@ -14,6 +14,9 @@ import com.loopj.android.http.TextHttpResponseHandler;
 
 import org.apache.http.Header;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import yw.cn.chat.lib.callback.HMObjectCallBack;
 import yw.cn.chat.lib.lib.HMFuture.HttpFuture;
 
@@ -21,6 +24,8 @@ import yw.cn.chat.lib.lib.HMFuture.HttpFuture;
  * Created by Administrator on 2015-09-10.
  */
 public class HMChatManager {
+    private Map<String,String> headers = new HashMap<String,String>();
+
     private static HMChatManager instance;
     private Context context;
     private Thread mainThread;
@@ -41,6 +46,16 @@ public class HMChatManager {
         this.mainThread = Thread.currentThread();
     }
 
+    /**
+     * 初始化连接用户安全信息
+     * @param account
+     * @param token
+     */
+    public void initAccount(String account,String token) {
+        headers.put("account",account);
+        headers.put("token",token);
+    }
+
     public HttpFuture register(String account,String password,HMObjectCallBack callBack) {
         AsyncHttpClient client = new AsyncHttpClient();
         client.setTimeout(30 * 1000);
@@ -51,11 +66,11 @@ public class HMChatManager {
         requestParams.put("account",account);
         requestParams.put("password",password);
 
-        return new HttpFuture(client.post(context,url,requestParams,newObjectResponseHandler(callBack)));
+        return new HttpFuture(client.post(context, url, requestParams, newObjectResponseHandler(callBack)));
     }
 
     private TextHttpResponseHandler newObjectResponseHandler(final HMObjectCallBack callBack) {
-        return new TextHttpResponseHandler() {
+        return new TextHttpResponseHandler("utf-8") {
 
             @Override
             public void onSuccess(int statusCode, org.apache.http.Header[] headers, String responseString) {

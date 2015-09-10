@@ -1,6 +1,5 @@
 package yw.cn.chat.fragment;
 
-import android.accounts.Account;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import yw.cn.chat.R;
+import yw.cn.chat.domain.Account;
 import yw.cn.chat.lib.HMChatManager;
 import yw.cn.chat.lib.HMError;
 import yw.cn.chat.lib.callback.HMObjectCallBack;
@@ -79,7 +79,6 @@ public class SignUpFra extends Fragment implements View.OnClickListener{
 
         final DialogLoading dialog = new DialogLoading(getActivity());
         dialog.show();
-
         HMChatManager.getInstance().register(account, password,
                 new HMObjectCallBack<Account>() {
 
@@ -88,10 +87,10 @@ public class SignUpFra extends Fragment implements View.OnClickListener{
                         Log.d(TAG, "注册成功!!!");
                         dialog.dismiss();
 
-//                        // 初始化用户连接安全信息
-//                        HMChatManager.getInstance().initAccount(
-//                                account.getAccount(), account.getToken());
-//
+                        // 初始化用户连接安全信息
+                        HMChatManager.getInstance().initAccount(
+                                account.getAccount(), account.getToken());
+
 //                        // 存储用户
 //                        AccountDao dao = new AccountDao(getActivity());
 //                        account.setCurrent(true);
