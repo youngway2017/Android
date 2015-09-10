@@ -62,7 +62,7 @@ public class LogoFra extends Fragment implements View.OnClickListener {
     private void signUp() {
         FragmentActivity activity = this.getActivity();
         if (activity != null) {
-            ((LoginActivity)activity).signIn();
+            ((LoginActivity)activity).signUp();
         }
     }
 

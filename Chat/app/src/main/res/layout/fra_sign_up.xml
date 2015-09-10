@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:padding="15dp" >
+
+    <EditText
+        android:id="@+id/et_sign_up_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/login_selector_input"
+        android:drawableLeft="@drawable/user_account_icon"
+        android:drawablePadding="15dp"
+        android:drawableStart="@drawable/user_account_icon"
+        android:hint="用户名/手机号"
+        android:minHeight="40dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/et_sign_up_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/login_selector_input"
+        android:drawableLeft="@drawable/user_pwd_lock_icon"
+        android:drawablePadding="15dp"
+        android:drawableStart="@drawable/user_pwd_lock_icon"
+        android:hint="请输入密码"
+        android:minHeight="40dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/btn_sign_up"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_green_selector"
+        android:text="注册"
+        android:textColor="#FFFFFFFF" />
+
+</LinearLayout>
