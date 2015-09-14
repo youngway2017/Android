@@ -1,6 +1,7 @@
 package yw.cn.chat.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,10 +14,17 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import yw.cn.chat.R;
+import yw.cn.chat.db.AccountDao;
+import yw.cn.chat.db.FriendDao;
+import yw.cn.chat.db.MessageDao;
 import yw.cn.chat.domain.Account;
+import yw.cn.chat.domain.Friend;
+import yw.cn.chat.domain.Message;
 import yw.cn.chat.lib.HMChatManager;
 import yw.cn.chat.lib.HMError;
 import yw.cn.chat.lib.callback.HMObjectCallBack;
+import yw.cn.chat.service.ChatCoreService;
+import yw.cn.chat.utils.CommonUtil;
 import yw.cn.chat.utils.ToastUtil;
 import yw.cn.chat.widget.DialogLoading;
 
@@ -91,55 +99,55 @@ public class SignUpFra extends Fragment implements View.OnClickListener{
                         HMChatManager.getInstance().initAccount(
                                 account.getAccount(), account.getToken());
 
-//                        // 存储用户
-//                        AccountDao dao = new AccountDao(getActivity());
-//                        account.setCurrent(true);
-//
-//                        Account localAccount = dao.getByAccount(account
-//                                .getAccount());
-//                        if (localAccount != null) {
-//                            dao.updateAccount(account);
-//                        } else {
-//                            dao.addAccount(account);
-//                        }
-//
-//                        // 开启服务
-//                        if (!CommonUtil.isServiceRunning(getActivity(),
-//                                ChatCoreService.class)) {
-//                            getActivity().startService(
-//                                    new Intent(getActivity(),
-//                                            ChatCoreService.class));
-//                        }
-//
-//                        FriendDao friendDao = new FriendDao(getActivity());
-//                        Friend friend = friendDao.queryFriendByAccount(
-//                                account.getAccount(), "HMChat");
-//                        if (friend == null) {
-//                            // 初始化通讯录
-//                            friend = new Friend();
-//                            friend.setOwner(account.getAccount());
-//                            friend.setAccount("HMChat");
-//                            friend.setAlpha("H");
-//                            friend.setArea("");
-//                            friend.setIcon("");
-//                            friend.setName("黑信团队");
-//                            friend.setNickName("");
-//                            friend.setSort(1000);
-//
-//                            friendDao.addFriend(friend);
-//
-//                            MessageDao messageDao = new MessageDao(
-//                                    getActivity());
-//                            Message message = new Message();
-//                            message.setAccount("HMChat");
-//                            message.setContent("欢迎使用黑信，黑信会给你带来更多精彩");
-//                            message.setCreateTime(System.currentTimeMillis());
-//                            message.setDirection(1);
-//                            message.setOwner(account.getAccount());
-//                            message.setRead(false);
-//                            messageDao.addMessage(message);
-//                        }
-//
+                        // 存储用户
+                        AccountDao dao = new AccountDao(getActivity());
+                        account.setCurrent(true);
+
+                        Account localAccount = dao.getByAccount(account
+                                .getAccount());
+                        if (localAccount != null) {
+                            dao.updateAccount(account);
+                        } else {
+                            dao.addAccount(account);
+                        }
+
+                        // 开启服务
+                        if (!CommonUtil.isServiceRunning(getActivity(),
+                                ChatCoreService.class)) {
+                            getActivity().startService(
+                                    new Intent(getActivity(),
+                                            ChatCoreService.class));
+                        }
+
+                        FriendDao friendDao = new FriendDao(getActivity());
+                        Friend friend = friendDao.queryFriendByAccount(
+                                account.getAccount(), "HMChat");
+                        if (friend == null) {
+                            // 初始化通讯录
+                            friend = new Friend();
+                            friend.setOwner(account.getAccount());
+                            friend.setAccount("HMChat");
+                            friend.setAlpha("H");
+                            friend.setArea("");
+                            friend.setIcon("");
+                            friend.setName("黑信团队");
+                            friend.setNickName("");
+                            friend.setSort(1000);
+
+                            friendDao.addFriend(friend);
+
+                            MessageDao messageDao = new MessageDao(
+                                    getActivity());
+                            Message message = new Message();
+                            message.setAccount("HMChat");
+                            message.setContent("欢迎使用黑信，黑信会给你带来更多精彩");
+                            message.setCreateTime(System.currentTimeMillis());
+                            message.setDirection(1);
+                            message.setOwner(account.getAccount());
+                            message.setRead(false);
+                            messageDao.addMessage(message);
+                        }
+
 //                        ((LoginActivity) getActivity()).go2FillInfo();
                     }
 
