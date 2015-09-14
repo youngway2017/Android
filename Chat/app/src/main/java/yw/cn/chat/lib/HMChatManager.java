@@ -15,6 +15,8 @@ import com.loopj.android.http.TextHttpResponseHandler;
 import org.apache.http.Header;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import yw.cn.chat.lib.callback.HMObjectCallBack;
@@ -25,7 +27,8 @@ import yw.cn.chat.lib.lib.HMFuture.HttpFuture;
  */
 public class HMChatManager {
     private Map<String,String> headers = new HashMap<String,String>();
-
+    private List<HMConnectListener> connectListeners = new LinkedList<HMConnectListener>();
+    private OnPushListener pushListener;
     private static HMChatManager instance;
     private Context context;
     private Thread mainThread;
@@ -143,20 +146,65 @@ public class HMChatManager {
         };
     }
 
+    /**
+     * 添加连接监听
+     *
+     * @param listener
+     */
+    public void addConnectionListener(HMConnectListener listener) {
+        if (!connectListeners.contains(listener)) {
+            connectListeners.add(listener);
+        }
+    }
 
+    /**
+     * 移除连接监听
+     *
+     * @param listener
+     */
+    public void removeConnectionListener(HMConnectListener listener) {
+        if (connectListeners.contains(listener)) {
+            connectListeners.remove(listener);
+        }
+    }
 
+    /**
+     * 添加消息推送监听
+     *
+     * @param listener
+     */
+    public void setPushListener(OnPushListener listener) {
+        this.pushListener = listener;
+    }
 
+    public interface HMConnectListener {
+        /**
+         * 正在连接
+         */
+        void onConnecting();
 
+        /**
+         * 已经连接
+         */
+        void onConnected();
 
+        /**
+         * 已经断开连接
+         */
+        void onDisconnected();
 
+        /**
+         * 正在重试连接
+         */
+        void onReconnecting();
 
+        /**
+         * 用户认证失败
+         */
+        void onAuthFailed();
+    }
 
-
-
-
-
-
-
-
-
+    public interface OnPushListener {
+        boolean onPush(String type, Map<String, Object> data);
+    }
 }
