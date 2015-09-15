@@ -4,6 +4,7 @@
                 android:layout_height="match_parent"
                 tools:context=".MainActivity">
     <young.com.slidemenu.view.SlideMenu
+        android:id="@+id/slideMenu"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <include layout="@layout/layout_menu"/>
